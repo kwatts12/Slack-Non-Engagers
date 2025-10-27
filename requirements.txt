@@ -1,2 +1,2 @@
-slack_bolt==1.22.0
-slack_sdk==3.27.1
+slack_bolt>=1.22.0,<2
+slack_sdk>=3.33.5,<4
