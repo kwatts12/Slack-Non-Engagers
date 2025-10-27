@@ -221,25 +221,25 @@ def handle_cmd(ack, body, respond, logger):
 
         summary = f"*Members considered:* {pop}  ·  *Engaged:* {engaged}  ·  *Non-engagers:* {non_ct}"
 
-dm = client.conversations_open(users=[body["user_id"]])["channel"]["id"]
-
-if names:
-    preview = summarize(names)
-    # Nudge in-channel ephemerally, but send details privately
-    respond("I’ve DMed you the results (CSV + summary).")
-    client.chat_postMessage(
-        channel=dm,
-        text=f"{summary}\n\n{preview}"
-    )
-    csv_bytes = make_csv(result["non_ids"], user_dir_map())
-    client.files_upload_v2(
-        channel=dm,
-        filename="non_engagers.csv",
-        title="Non-engagers",
-        file=csv_bytes,
-    )
-else:
-    respond(f"{summary}\n\n🎉 Everyone engaged (reacted or replied)!")
+        dm = client.conversations_open(users=[body["user_id"]])["channel"]["id"]
+        
+        if names:
+            preview = summarize(names)
+            # Nudge in-channel ephemerally, but send details privately
+            respond("I’ve DMed you the results (CSV + summary).")
+            client.chat_postMessage(
+                channel=dm,
+                text=f"{summary}\n\n{preview}"
+            )
+            csv_bytes = make_csv(result["non_ids"], user_dir_map())
+            client.files_upload_v2(
+                channel=dm,
+                filename="non_engagers.csv",
+                title="Non-engagers",
+                file=csv_bytes,
+            )
+        else:
+            respond(f"{summary}\n\n🎉 Everyone engaged (reacted or replied)!")
 
     except Exception as e:
         logger.exception(e)
