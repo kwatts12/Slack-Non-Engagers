@@ -1,0 +1,10 @@
+{
+  "build": {
+    "install": "pip install -r requirements.txt"
+  },
+  "start": "python app.py",
+  "env": {
+    "SLACK_BOT_TOKEN": "REQUIRED",
+    "SLACK_APP_TOKEN": "REQUIRED"
+  }
+}
