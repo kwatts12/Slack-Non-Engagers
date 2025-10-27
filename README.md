@@ -8,7 +8,7 @@ Long-press any Slack message (mobile or desktop) and run a message shortcut to l
 
 ## 🚀 One-Click Deploy on Railway
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?repo=<REPLACE_WITH_YOUR_REPO_URL>)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?repo=https://github.com/kwatts12/Slack-Non-Engagers/tree/main)
 
 During deploy, Railway will prompt you for:
 - `SLACK_BOT_TOKEN` (xoxb-…)
