@@ -5,10 +5,12 @@ This is a slack bot which dms you a list of all slack users who are in a channel
 4. users:read
 5. reactions:read
 6. im:write
-\nAdditionally if you are implementing in public channels:
+
+Additionally if you are implementing in public channels:
 7. channels:read
 8. channels:history
-\nOr if you are implementing in private channels:
+
+Or if you are implementing in private channels:
 7. groups:read
 8. groups:history
 After you've added the scopes, you'll be able to get your SLACK_BOT_TOKEN under OAuth & Permissions. You will additionally want to turn interactivity and shortcuts ON and create a message shortcut called Find Non-Engagers or something similar. This will enable you to run the slack bot by simply long-holding on the message and then scrolling down to select your slack app. For implementation using Railway, you will additionally need to enable Socket Mode in your apps settings, and then create an app token with the scope connections:write. Now, you can install or reinstall the app to your workspace and add it to the slack channels that you'll want to use it in. Make sure to grab your SLACK_APP_TOKEN after installing it to your workspace and again every time you reinstall.
