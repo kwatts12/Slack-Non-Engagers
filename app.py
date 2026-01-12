@@ -16,6 +16,16 @@ from slack_sdk.errors import SlackApiError
 BOT_TOKEN = os.environ["SLACK_BOT_TOKEN"]
 APP_TOKEN = os.environ["SLACK_APP_TOKEN"]
 
+EXCLUDED_USER_IDS = {
+    "U040FETSCDN",
+    "U09NBRAU7MG",
+    "U07M27PDWN7",
+    "U07HP5EREGM",
+    "U03V0E6RFGA",
+    "U05NNHVHQUU",
+    "U09BRJQRXNJ",
+}
+
 app = App(token=BOT_TOKEN)
 client = WebClient(token=BOT_TOKEN)
 
@@ -139,6 +149,7 @@ def compute_nonengagers(channel: str, ts: str):
         engaged.add(author)
 
     engaged = {uid for uid in engaged if uid in pop}
+    pop = {uid for uid in pop if uid not in EXCLUDED_USER_IDS}
     non = sorted(pop - engaged)
     names = [format_name(users.get(uid)) for uid in non]
     return {
